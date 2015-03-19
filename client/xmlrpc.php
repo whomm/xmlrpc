@@ -8,6 +8,7 @@ function do_call($host, $port, $request) {
     $url = "http://$host:$port/";
     $header[] = "Content-type: text/xml";
     $header[] = "Content-length: ".strlen($request);
+    $header[] = "Expect:";   #!!important!! supress "Expect" header
     
     $ch = curl_init();   
     curl_setopt($ch, CURLOPT_URL, $url);
